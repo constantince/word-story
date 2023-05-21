@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单词上传</title>
+    <script>
+        async function submitWords() {
+            const inputElement = document.getElementById('words');
+            const words = inputElement.value;
+
+            const formData = new FormData();
+            formData.append('words', words);
+
+            const response = await fetch('/process_words', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            if(result == "success") {
+                alert("Upload success, wait for a while to generate the words-stroy!")
+            }
+            console.log(result);
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="event.preventDefault(); submitWords();">
+        <label for="words">请输入单词：</label>
+        <input type="text" id="words" name="words" />
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>

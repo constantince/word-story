@@ -1,0 +1,11 @@
+words = ['bustling', 'ballpark', 'moisture', 'terrific', 'entrusted', 'overthrow', 'unblock', 'understatement', 'utterly', 'upfront', 'exceedingly', 'enormity', 'funnel', 'testimonials', 'psyche', 'spare', 'decals', 'planar', 'tradeoffs', 'photons', 'portrayal', 'huddle', 'resembles', 'replicating', 'karate', 'imperceptible', 'casted', 'infer', 'flavored', 'gratifying', 'metaphor', 'constraints', 'obstruct', 'pseudo']
+
+
+words2 = "bustling,ballpark,moisture,terrific,entrusted,overthrow,unblock,understatement,utterly,upfront,exceedingly,enormity,FUNNEL,testimonials,Psyche,spare,decals,planar,tradeoffs,photons,portrayal,Huddle,resembles,replicating,karate,imperceptible,casted,infer,flavored,gratifying,metaphor,constraints,obstruct,pseudo,rigid,interpolation,ornament,hexagrams,subvert,modulate,sketch,saturate,punctual,quaternion,primitives,Pervasive,homogeneous,lurking,exhaustive,complementary,Boilerplate,glyphs,profiling,pixelation,ceiling,perpendicular,lobby,silhouettes,interpolated"
+
+
+
+words1 = ['bustling', 'ballpark', 'moisture', 'terrific', 'entrusted', 'overthrow', 'unblock', 'understatement', 'utterly', 'upfront', 'exceedingly', 'enormity', 'funnel', 'testimonials', 'psyche', 'spare', 'decals', 'planar', 'tradeoffs', 'photons', 'portrayal', 'huddle', 'resembles', 'replicating', 'karate', 'imperceptible', 'casted', 'infer', 'flavored', 'gratifying', 'metaphor', 'constraints', 'obstruct', 'pseudo', 'rigid', 'interpolation', 'ornament', 'hexagrams', 'subvert', 'modulate', 'sketch', 'saturate', 'punctual', 'quaternion', 'primitives', 'Pervasive', 'homogeneous', 'lurking', 'exhaustive', 'complementary', 'boilerplate', 'glyphs', 'profiling', 'pixelation', 'ceiling', 'perpendicular', 'lobby', 'silhouettes', 'interpolated', "winter", "wish", "with", "without",
+"woman", "wonderful", "wood", "wooden", "wool", "word", "work", "worker",
+"exercise", "world", "worried", "worry", "worse", "worst",
+"would", "wow", "write", "writer", "writing", "wrong","iphone", "mac", "pc", "good", "specfication", "document", "food", "screen", "go"]

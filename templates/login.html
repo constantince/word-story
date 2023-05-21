@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录界面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input[type="email"], input[type="password"] {
+            display: block;
+            margin-bottom: 15px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #2980b9;
+            color: white;
+            font-size: 14px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        a {
+            display: block;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #2980b9;
+            text-decoration: none;
+            text-align: right;
+        }
+     </style>
+</head>
+<body>
+    <form>
+        <label for="email">邮箱:</label>
+        <input type="email" id="email" placeholder="请输入您的邮箱" required>
+        
+        <label for="password">密码:</label>
+        <input type="password" id="password" placeholder="请输入您的密码" required>
+
+        <button type="submit">登录</button>
+        <a href="#">忘记密码？</a>
+    </form>
+</body>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        if (validateEmail(email) && validatePassword(password)) {
+            // 在这里处理验证通过的逻辑，例如发送请求到服务器进行身份验证
+           fetch('/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('登录失败，无法连接到服务器。');
+                }
+            })
+            .then(data => {
+                // 在这里处理服务器返回的数据，例如保存token、跳转到其他页面等
+                if(data.status === "success") {
+                    console.log('登录成功:', data);
+                    window.location.href = "/"
+                } else {
+                   alert(data.message );
+                }
+            })
+            .catch(error => {
+                // 在这里处理请求失败的情况，例如提示用户错误信息
+                console.error('登录失败:', error);
+            });
+
+        } else {
+            // 在这里处理验证失败的逻辑
+            alert('请检查您输入的电子邮件和密码');
+        }
+    });
+
+    function validateEmail(email) {
+        const emailRegex = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)*\.[A-Za-z]{2,}$/;
+        return emailRegex.test(email);
+    }
+
+    function validatePassword(password) {
+        // 可以根据需要修改密码验证规则，例如最小长度、包含特殊字符等
+        const passwordRegex = /^.{2,8}$/;
+        return passwordRegex.test(password);
+    }
+</script>
+
+
+</html>
